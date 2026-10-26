@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibrahim Usman | Portfolio</title>
+
+    <style>
+        /* ---------- Variables (primeX blue and yellow) ---------- */
+        :root {
+            --blue: #0b3d91;
+            --blue-dark: #082a66;
+            --yellow: #ffc61a;
+            --bg: #f4f7fc;
+            --card: #ffffff;
+            --text: #1d2433;
+            --muted: #5b6579;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* ---------- Header ---------- */
+        header {
+            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px 50px;
+        }
+        header h1 {
+            font-size: clamp(2rem, 6vw, 3.2rem);
+            letter-spacing: 3px;
+        }
+        header p {
+            margin-top: 8px;
+            color: var(--yellow);
+            font-weight: 600;
+            letter-spacing: 4px;
+        }
+        #typing {
+            display: inline-block;
+            margin-top: 14px;
+            color: #dbe6ff;
+            font-size: 1rem;
+            min-height: 1.6em;
+            border-right: 2px solid var(--yellow);
+            padding-right: 4px;
+        }
+
+        /* ---------- Navigation ---------- */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--blue-dark);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .25);
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: .85rem;
+            letter-spacing: 1px;
+            padding: 16px 22px;
+            border-bottom: 3px solid transparent;
+            transition: .25s;
+        }
+        nav a:hover { color: var(--yellow); }
+        nav a.active { color: var(--yellow); border-bottom-color: var(--yellow); }
+
+        /* ---------- Main sections ---------- */
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        section {
+            background: var(--card);
+            border-radius: 14px;
+            padding: 32px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 18px rgba(11, 61, 145, .08);
+            border-left: 6px solid var(--yellow);
+        }
+        section h2 {
+            color: var(--blue);
+            margin-bottom: 14px;
+        }
+        section p { margin-bottom: 12px; color: var(--muted); }
+        section strong { color: var(--blue); }
+
+        #about img {
+            display: block;
+            margin: 10px 0 16px;
+            border-radius: 50%;
+            border: 4px solid var(--yellow);
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+        }
+
+        ul { margin-left: 20px; }
+        li { margin-bottom: 6px; }
+
+        a { color: var(--blue); font-weight: 600; }
+        a:hover { color: #c78f00; }
+
+        /* ---------- Skills ---------- */
+        .skills { list-style: none; margin: 0; }
+        .skills li {
+            background: var(--bg);
+            border-radius: 8px;
+            padding: 10px 14px;
+            margin-bottom: 12px;
+        }
+        .bar {
+            height: 8px;
+            background: #dde5f5;
+            border-radius: 6px;
+            margin-top: 6px;
+            overflow: hidden;
+        }
+        .bar span {
+            display: block;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, var(--blue), var(--yellow));
+            border-radius: 6px;
+            transition: width 1.2s ease;
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            background: var(--blue-dark);
+            color: #cfd9f0;
+            text-align: center;
+            padding: 22px;
+        }
+
+        /* ---------- Back to top ---------- */
+        #topBtn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 46px;
+            height: 46px;
+            border: none;
+            border-radius: 50%;
+            background: var(--yellow);
+            color: var(--blue-dark);
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, .3);
+            opacity: 0;
+            pointer-events: none;
+            transition: .3s;
+        }
+        #topBtn.show { opacity: 1; pointer-events: auto; }
+
+        /* ---------- Scroll reveal ---------- */
+        .reveal { opacity: 0; transform: translateY(30px); transition: .7s; }
+        .reveal.visible { opacity: 1; transform: none; }
+
+        @media (max-width: 600px) {
+            nav a { padding: 12px 12px; font-size: .75rem; }
+            section { padding: 22px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <h1>MY PORTFOLIO</h1>
+        <p>IBRAHIM USMAN</p>
+        <span id="typing"></span>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#contact">Contact Me</a>
+     
+        <a href="#experience">Experience</a>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <section id="about" class="reveal">
+            <h2>About Me</h2>
+            <p>
+                Hello, I'm <strong>Ibrahim Usman</strong>, a Software Engineering student at
+                Northwest University Sokoto (NWUS). I grew up in Tambuwal, a town that taught me
+                the value of hard work, patience, and community, and those values shape the way I
+                learn and build today.
+            </p>
+            <img src="https://scontent-los4-1.xx.fbcdn.net/v/t39.30808-1/709385863_122210658752505935_6370054509427982003_n.jpg?stp=c0.0.960.960a_dst-jpg_tt6&cstp=mx960x960&ctp=s200x200&_nc_cat=103&ccb=1-7&_nc_sid=1d2534&_nc_eui2=AeHB-MbfkYdohUnV0irE0_jSj75xC35qc5yPvnELfmpznKmOXqd7q66ERqX1uOX9wNaYUehgCysrRYLq8RFeht3Q&_nc_ohc=L_LN0lJRJe4Q7kNvwHsE2dF&_nc_oc=AdoU2dS16cr1YbPjtKY7E0x1pWVEdfRfwwD3lwAAeF_srAELdFKOXyFTXocYvaZu5TdbdUSQbjJRSRNrTDyr0ybL&_nc_zt=24&_nc_ht=scontent-los4-1.xx&_nc_gid=zZB3fipzqVWfKOupTriXUQ&_nc_ss=7b2a8&oh=00_AQPcboakY2jOygfj40Y6f2EXSgFXOmTnGky7cJzO359wqg&oe=6AE500F8"  alt="Ibrahim usman"
+                I'm passionate about turning ideas into real, working software. I enjoy building
+                websites and digital tools that solve practical problems, and I'm always learning
+                new skills to improve my craft.
+
+            </p>
+            <p>
+                This portfolio showcases my projects, my skills, and my journey as a developer.
+                I'm open to collaboration, learning opportunities, and new challenges.
+            </p>
+        </section>
+
+        <section id="contact" class="reveal">
+            <h2>Contact Me</h2>
+            <p>I'd love to hear from you. Reach out through any of these:</p>
+            <ul>
+                <li>Email: <a href="mailto:ibrahimusmantbw@gmail.com">ibrahimusmantbw@gmail.com</a></li>
+                <li>Phone/WhatsApp: <a href="https://wa.me/2349017477325">Chat on WhatsApp</a></li>
+                <li>Location: Sokoto, Nigeria</li>
+            </ul>
+        </section>
+
+        <section class="reveal">
+            <h2>About My Project</h2>
+            <p>
+                I'm working on a project called primeX, a platform that helps students
+                find work online and discover scholarships.
+            </p>
+        </section>
+
+        <section id="experience" class="reveal">
+            <h2>My Experience</h2>
+            <ul class="skills">
+                <li>HTML <div class="bar"><span data-level="85%"></span></div></li>
+                <li>CSS <div class="bar"><span data-level="80%"></span></div></li>
+                <li>JavaScript <div class="bar"><span data-level="60%"></span></div></li>
+            </ul>
+        </section>
+    </main>
+
+    <button id="topBtn" title="Back to top">&uarr;</button>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; <span id="year">2026</span> Ibrahim Usman. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // 1. Typing effect in the header
+        const words = ["Software Engineering Student", "Web Developer", "Builder of primeX"];
+        const typing = document.getElementById("typing");
+        let w = 0, c = 0, deleting = false;
+
+        function type() {
+            const word = words[w];
+            typing.textContent = word.substring(0, c);
+            if (!deleting && c < word.length) { c++; setTimeout(type, 90); }
+            else if (!deleting) { deleting = true; setTimeout(type, 1400); }
+            else if (c > 0) { c--; setTimeout(type, 45); }
+            else { deleting = false; w = (w + 1) % words.length; setTimeout(type, 300); }
+        }
+        type();
+
+        // 2. Highlight the nav link of the section you are viewing
+        const links = document.querySelectorAll("nav a");
+        const sections = document.querySelectorAll("section");
+
+        function setActive() {
+            let current = "";
+            sections.forEach(sec => {
+                if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
+            });
+            links.forEach(a => {
+                a.classList.toggle("active", a.getAttribute("href") === "#" + current);
+            });
+        }
+
+        // 3. Back to top button
+        const topBtn = document.getElementById("topBtn");
+        topBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+        window.addEventListener("scroll", () => {
+            setActive();
+            topBtn.classList.toggle("show", window.scrollY > 300);
+        });
+
+        // 4. Reveal sections on scroll and animate skill bars
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    entry.target.querySelectorAll(".bar span").forEach(bar => {
+                        bar.style.width = bar.dataset.level;
+                    });
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+        // 5. Auto-update footer year
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
